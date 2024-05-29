@@ -7,7 +7,7 @@ import RightAboutUs from '../Components/RightAboutUs'
 const AboutUs = () => {
   return (
    <>
-    <Header width='full' active='About US' />
+    <Header width='full' active='About Us' />
     <LeftAboutUs />
     <RightAboutUs />
     <LeftAboutUs />

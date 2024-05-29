@@ -12,7 +12,7 @@ export const navItems = [
         link: '/career'
     },
     {
-        name: 'About US',
+        name: 'About Us',
         link: '/aboutus'
     }
     

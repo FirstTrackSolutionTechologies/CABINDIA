@@ -11,8 +11,8 @@ const Header : FC<IHeaderProps> = ({width, active}) => {
 
   const logo = "logo.png";
   return (
-    <div className={`fixed w-${width} z-10`}>
-      <div className="flex w-full h-16 bg-black items-center px-3 py-2 justify-center text-white">
+    <div className={`fixed w-${width} z-10 top-0 `}>
+      <div className="flex w-full h-16 bg-gray-900 items-center px-3 py-2 justify-center text-white">
         <div className="relative w-4/5">
           <div className="flex w-full items-center">
             <img className="w-10" src={logo} alt="" />

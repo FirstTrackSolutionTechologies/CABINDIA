@@ -10,7 +10,7 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
   return (
     <form className='text-yellow-400 bg-gray-800 p-4' action="">
       <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='mobile' placeholder='Your E-mail Address' />
-      <input className='bg-gray-900 p-4 w-80' type="password" name='password' placeholder='Your Password' />
+      <input className='bg-gray-900 p-4 w-80 mb-4' type="password" name='password' placeholder='Your Password' />
       <div className='p-1 -mb-2' onClick={()=>setIsLogin(!isLogin)}>Don't have an account? Register Now</div>
       <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4'>
         Login

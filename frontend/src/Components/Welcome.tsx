@@ -1,8 +1,9 @@
 const Welcome = () => {
   const welcome = "welcome.jpg";
   return (
-    <div className="flex h-screen bg-black">
-      <div className="flex-col text-white w-2/3 bg-black flex items-center justify-center">
+    <div className="flex h-screen bg-gray-900">
+      <div className="flex-col text-white w-2/3 bg-gray-900 flex items-center justify-center ">
+        <div className="flex justify-center items-center flex-col">
         <p className="text-5xl font-extrabold">GET YOUR <span className="text-yellow-400">FIRST RIDE</span> NOW</p>
         <p className="text-xl text-white">BIKES • CARS • TRANSPORTATION • SCHEDULED RIDES</p>
         <div>
@@ -34,6 +35,7 @@ const Welcome = () => {
               Get Your Fare
             </button>
           </form>
+        </div>
         </div>
       </div>
       <div className="absolute right-0 w-[40%] bg-black rounded-tl-[85%] overflow-hidden">
