@@ -7,12 +7,47 @@ interface ILoginregisterProps {
 }
 
 const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();  // Prevent the default form submission
+
+    // Manually collect form data
+    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
+    const password = (document.querySelector('input[name="password"]') as HTMLInputElement).value;
+
+    const data = {
+      email,
+      password,
+    };
+
+    // Make the API call
+    fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert('Login successful!');
+          // Handle successful login
+        } else {
+          alert('Login failed: ' + result.message);
+          // Handle login failure
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during login');
+      });
+  };
   return (
-    <form className='text-yellow-400 bg-gray-800 p-4' action="">
-      <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='mobile' placeholder='Your E-mail Address' />
+    <form className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
+      <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='email' placeholder='Your E-mail Address' />
       <input className='bg-gray-900 p-4 w-80 mb-4' type="password" name='password' placeholder='Your Password' />
       <div className='p-1 -mb-2' onClick={()=>setIsLogin(!isLogin)}>Don't have an account? Register Now</div>
-      <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4'>
+      <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4' type='submit'>
         Login
       </button>
     </form>
@@ -35,18 +70,56 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
   )
 }
 
-const RiderLogin  = () => {
+
+const RiderLogin: React.FC = () => {
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();  // Prevent the default form submission
+
+    // Manually collect form data
+    const riderId = (document.querySelector('input[name="riderId"]') as HTMLInputElement).value;
+    const password = (document.querySelector('input[name="password"]') as HTMLInputElement).value;
+
+    const data = {
+      riderId,
+      password,
+    };
+
+    // Make the API call
+    fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert('Login successful!');
+          // Handle successful login
+        } else {
+          alert('Login failed: ' + result.message);
+          // Handle login failure
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during login');
+      });
+  };
+
   return (
-    <form className='text-yellow-400 bg-gray-800 p-4' action="">
+    <form id='myForm' className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
       <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='riderId' placeholder='Your Rider Id' />
       <input className='bg-gray-900 p-4 w-80' type="password" name='password' placeholder='Your Password' />
       
-      <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4'>
+      <button className='w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4' type="submit">
         Login
       </button>
     </form>
-  )
-}
+  );
+};
+
 
 const ChooseLogin = () => {
   const [customerLogin, setCustomerLogin] = useState<Boolean>(true)

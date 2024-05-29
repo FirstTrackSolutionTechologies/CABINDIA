@@ -40,18 +40,18 @@ exports.handler = async (event, context) => {
     if (user.password === password) { // Note: In a real-world scenario, you should hash and compare passwords
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: 'Authentication successful' }),
+        body: JSON.stringify({ message: 'Authentication successful', success: true }),
       };
     } else {
       return {
         statusCode: 401,
-        body: JSON.stringify({ message: 'Invalid email or password' }),
+        body: JSON.stringify({ message: 'Invalid email or password', success: false }),
       };
     }
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: error.message }),
+      body: JSON.stringify({ message: error.message , success: false }),
     };
   }
 };
