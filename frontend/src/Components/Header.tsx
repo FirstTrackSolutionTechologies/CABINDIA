@@ -16,6 +16,7 @@ const Header : FC<IHeaderProps> = ({width, active}) => {
         <div className="relative w-4/5">
           <div className="flex w-full items-center">
             <img className="w-10" src={logo} alt="" />
+            &nbsp;
             <span className="text-md font-bold">CAB5155</span>
             <div className="absolute right-0">
               <div className="flex justify-between w-96">
