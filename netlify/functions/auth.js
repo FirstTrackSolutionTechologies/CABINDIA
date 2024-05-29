@@ -11,14 +11,13 @@ exports.handler = async (event, context) => {
   }
 
   const { email, password } = JSON.parse(event.body);
-
+  console.log(process.env.DB_HOST)
   if (!email || !password) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: 'Email and Password are required' }),
     };
   }
-
   try {
     const connection = await mysql.createConnection({
       host: process.env.DB_HOST,
