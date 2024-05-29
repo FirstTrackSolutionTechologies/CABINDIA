@@ -11,7 +11,7 @@ const Welcome = () => {
           >
             <div className="flex flex-col w-60">
               <input
-                className="w-60 h-10 rounded-xl p-2 text-black font-bold"
+                className="w-60 h-10 rounded-xl p-2 text-black font-bold bg-white"
                 placeholder="Source"
                 type="text"
                 name="source"
@@ -22,7 +22,7 @@ const Welcome = () => {
             </div>
             <div className="flex flex-col w-60">
               <input
-                className="w-60 h-10 rounded-xl p-2 text-black font-bold"
+                className="w-60 h-10 rounded-xl p-2 text-black font-bold bg-white"
                 type="text"
                 name="destination"
                 placeholder="Destination"
