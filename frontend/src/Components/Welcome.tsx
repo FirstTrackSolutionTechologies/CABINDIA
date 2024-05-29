@@ -3,7 +3,7 @@ const Welcome = () => {
   return (
     <div className="flex h-screen bg-black">
       <div className="flex-col text-white w-2/3 bg-black flex items-center justify-center">
-        <p className="text-5xl font-extrabold">GET YOUR FIRST RIDE NOW</p>
+        <p className="text-5xl font-extrabold">GET YOUR <span className="text-yellow-400">FIRST RIDE</span> NOW</p>
         <div>
           <form
             className="flex w-full items-center justify-between mt-32"

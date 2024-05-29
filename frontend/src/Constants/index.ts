@@ -4,12 +4,12 @@ export const navItems = [
         link: '/'
     },
     {
-        name: 'Register',
-        link: '/register'
-    },
-    {
         name: 'Job Ride',
         link: '/jobride'
+    },
+    {
+        name: 'Career',
+        link: '/career'
     },
     {
         name: 'About US',

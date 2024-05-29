@@ -8,6 +8,7 @@ interface IHeaderProps {
 }
 
 const Header : FC<IHeaderProps> = ({width, active}) => {
+
   const logo = "logo.png";
   return (
     <div className={`fixed w-${width} z-10`}>
