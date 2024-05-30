@@ -3,15 +3,21 @@ const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 exports.handler = async (event, context) => {
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ message: 'Method Not Allowed' }),
-    };
-  }
+  // if (event.httpMethod !== 'POST') {
+  //   return {
+  //     statusCode: 405,
+  //     body: JSON.stringify({ message: 'Method Not Allowed' }),
+  //   };
+  // }
 
-  const { name,email, mobile ,password, confirmPassword } = JSON.parse(event.body);
- 
+  // const { name,email, mobile ,password, confirmPassword } = JSON.parse(event.body);
+
+  let name = "Aditya"
+  let email = "aditya@gmail.com"
+  let password = "password"
+  let confirmPassword = "password"
+  let mobile = "1234556678"
+ console.log("hello")
   if (!email || !password || !confirmPassword || !name || !mobile) {
     return {
       statusCode: 400,
@@ -33,6 +39,7 @@ exports.handler = async (event, context) => {
     });
 
     const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?))', [name,email,mobile,password]);
+    console.log(rows)
     return {
       statusCode: 200,
       body: JSON.stringify({ message: rows, success:true }),
@@ -58,6 +65,8 @@ exports.handler = async (event, context) => {
     //   };
     // }
   } catch (error) {
+    console.log("hello");
+
     return {
       statusCode: 500,
       body: JSON.stringify({ message: error.message , success: false }),
