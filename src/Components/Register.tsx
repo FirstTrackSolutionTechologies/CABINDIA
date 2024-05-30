@@ -1,4 +1,5 @@
 import  { useState, FC } from 'react';
+import { redirect } from 'react-router-dom';
 
 
 interface ILoginregisterProps {
@@ -84,7 +85,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          alert("yay");
+          redirect('/dashboard')
           // Handle successful login
         } else {
           alert('Register failed: ' + result.message);
