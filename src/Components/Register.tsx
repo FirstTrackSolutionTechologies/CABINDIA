@@ -31,7 +31,7 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          alert("yay");
+          redirect('/dashboard')
           // Handle successful login
         } else {
           alert('Login failed: ' + result.message);
