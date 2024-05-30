@@ -8,7 +8,7 @@ const Career = () => {
   return (
     <>
         <Header width='full' active='Career' />
-        <Carousel images={['logo.png','logo_.png','welcome.jpg']} />
+        <Carousel images={['logo.png','logo_.png','welcome.jpg', 'career_1.jpg']} />
         <LeftAboutUs />
         <RightAboutUs />
         <LeftAboutUs />

@@ -2,7 +2,7 @@
 
 const RightAboutUs = () => {
     return (
-      <div className="w-full bg-black text-white"> 
+      <div className="w-full bg-gray-800 text-white"> 
         <div className="flex w-full h-[600px] items-center">
         <div className="relative h-inherit bg-yellow-500 w-1/3"></div>
           <div className="relative h-inherit w-2/3 p-20">

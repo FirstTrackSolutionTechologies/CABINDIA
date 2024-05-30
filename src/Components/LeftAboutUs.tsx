@@ -2,7 +2,7 @@
 
 const LeftAboutUs = () => {
   return (
-    <div className="w-full bg-black text-white">
+    <div className="w-full bg-gray-900 text-white">
       <div className="flex w-full h-[600px] items-center">
         <div className="relative h-inherit w-2/3 p-20">
         <div className="text-3xl font-bold">WHO ARE WE?</div>
