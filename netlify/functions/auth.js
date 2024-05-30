@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   }
 
   const { email, password } = JSON.parse(event.body);
- 
+ console.log(email , password);
   if (!email || !password) {
     return {
       statusCode: 400,
@@ -25,9 +25,9 @@ exports.handler = async (event, context) => {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
     });
-
+    console.log(connection)
     const [rows] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
-
+    console.log(rows)
     if (rows.length === 0) {
       return {
         statusCode: 401,
