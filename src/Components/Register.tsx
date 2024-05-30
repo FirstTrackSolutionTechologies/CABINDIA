@@ -1,5 +1,4 @@
 import  { useState, FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 
 interface ILoginregisterProps {
