@@ -10,12 +10,18 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const { email, password } = JSON.parse(event.body);
+  const { name,email, mobile ,password, confirmPassword } = JSON.parse(event.body);
  
-  if (!email || !password) {
+  if (!email || !password || !confirmPassword || !name || !mobile) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ message: 'Email and Password are required' }),
+      body: JSON.stringify({ message: 'Missing Fields' }),
+    };
+  }
+  if (password !== confirmPassword) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Password must be same in both fields' }),
     };
   }
   try {
@@ -26,28 +32,31 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME,
     });
 
-    const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?))', [name,email]);
-
-    if (rows.length === 0) {
-      return {
-        statusCode: 401,
-        body: JSON.stringify({ message: 'Invalid email or password' }),
-      };
+    const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?))', [name,email,mobile,password]);
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: rows, success:true }),
     }
+    // if (rows.length === 0) {
+    //   return {
+    //     statusCode: 401,
+    //     body: JSON.stringify({ message: 'Invalid email or password' }),
+    //   };
+    // }
 
-    const user = rows[0];
+    // const user = rows[0];
 
-    if (user.password === password) { // Note: In a real-world scenario, you should hash and compare passwords
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ message: 'Authentication successful', success: true }),
-      };
-    } else {
-      return {
-        statusCode: 401,
-        body: JSON.stringify({ message: 'Invalid email or password', success: false }),
-      };
-    }
+    // if (user.password === password) { // Note: In a real-world scenario, you should hash and compare passwords
+    //   return {
+    //     statusCode: 200,
+    //     body: JSON.stringify({ message: 'Authentication successful', success: true }),
+    //   };
+    // } else {
+    //   return {
+    //     statusCode: 401,
+    //     body: JSON.stringify({ message: 'Invalid email or password', success: false }),
+    //   };
+    // }
   } catch (error) {
     return {
       statusCode: 500,

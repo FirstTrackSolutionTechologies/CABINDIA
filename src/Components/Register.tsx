@@ -55,8 +55,49 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
 }
 
 const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();  // Prevent the default form submission
+
+    // Manually collect form data
+    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
+    const password = (document.querySelector('input[name="password"]') as HTMLInputElement).value;
+    const name = (document.querySelector('input[name="name"]') as HTMLInputElement).value;
+    const confirmPassword = (document.querySelector('input[name="confirmPassword"]') as HTMLInputElement).value;
+    const mobile = (document.querySelector('input[name="mobile"]') as HTMLInputElement).value;
+
+    const data = {
+      name,
+      email,
+      mobile,
+      password,
+      confirmPassword,
+    };
+
+    // Make the API call
+    fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert("yay");
+          // Handle successful login
+        } else {
+          alert('Register failed: ' + result.message);
+          // Handle login failure
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during Register');
+      });
+  };
   return (
-    <form className='text-yellow-400 bg-gray-800 p-4' action="">
+    <form className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
     <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='fullName' placeholder='Full Name' />
     <input className='bg-gray-900 p-4 w-80 mb-4' type="email" name='email' placeholder='Your E-mail Address' />
     <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='mobile' placeholder='Your mobile number' />
