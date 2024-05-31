@@ -4,7 +4,7 @@ import Header from '../Components/Header'
 const Dashboard = () => {
   return (
     <>
-        <Header width='full' active='' />
+        <Header width='full' active='' isLoggedIn={true} />
         <Booking />
     </>
   )

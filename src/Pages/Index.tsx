@@ -6,7 +6,7 @@ import Register from '../Components/Register'
 const Index = () => {
   return (
     <>
-        <Header width='2/3' active="Home" />
+        <Header width='2/3' active="Home" isLoggedIn={false} />
         <Welcome />
         <Register />
     </>

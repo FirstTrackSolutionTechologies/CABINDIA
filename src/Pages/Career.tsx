@@ -7,7 +7,7 @@ import Footer from '../Components/Footer'
 const Career = () => {
   return (
     <>
-        <Header width='full' active='Career' />
+        <Header width='full' active='Career' isLoggedIn={true} />
         <Carousel images={['logo.png','logo_.png','welcome.jpg', 'career_1.jpg']} />
         <LeftAboutUs />
         <RightAboutUs />

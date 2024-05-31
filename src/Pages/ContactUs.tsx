@@ -6,7 +6,7 @@ import Header from '../Components/Header'
 const ContactUs = () => {
   return (
     <>
-        <Header width='full' active="" />
+        <Header width='full' active="" isLoggedIn={true} />
         <Carousel images={['logo.png', 'logo_.png', 'welcome.jpg']} />
         <Contact />
         <Footer />

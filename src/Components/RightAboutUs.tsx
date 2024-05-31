@@ -4,7 +4,9 @@ const RightAboutUs = () => {
     return (
       <div className="w-full bg-gray-800 text-white"> 
         <div className="flex w-full h-[600px] items-center">
-        <div className="relative h-inherit bg-yellow-500 w-1/3"></div>
+        <div className="relative h-inherit bg-yellow-500 w-1/3">
+          <img src="logo.png" alt="" />
+        </div>
           <div className="relative h-inherit w-2/3 p-20">
           <div className="text-3xl font-bold">WHO ARE WE?</div>
           <div className="mt-8">

@@ -14,7 +14,9 @@ const LeftAboutUs = () => {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas facilis maxime, atque iure deleniti maiores, nihil aliquam dicta molestias praesentium esse eaque, veritatis blanditiis eos libero excepturi hic beatae a!
         </div>
         </div>
-        <div className="relative h-inherit bg-yellow-500 w-1/3"></div>
+        <div className="relative h-inherit bg-yellow-500 w-1/3">
+          <img src="logo.png" alt="" />
+        </div>
       </div>
     </div>
   )

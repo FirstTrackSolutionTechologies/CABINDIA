@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 interface IHeaderProps {
   width: string;
   active: string;
+  isLoggedIn: Boolean;
 }
 
 interface INavItemProps {
@@ -44,13 +45,16 @@ const NavItem : FC<INavItemProps> = ({index, item, active}) => {
   )
 }
 
-const Header : FC<IHeaderProps> = ({width, active}) => {
-
+const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
+  const [isProfileMenu, setIsProfileMenu] = useState(false)
+  const toggleProfile = () => {
+    setIsProfileMenu(!isProfileMenu)
+  }
   const logo = "logo.png";
   return (
     <div className={`fixed w-${width} z-10 top-0`}>
       <div className="flex w-full h-16 bg-gray-900 items-center px-3 py-2 justify-center text-white">
-        <div className="relative w-4/5">
+        <div className="relative w-3/5">
           <div className="flex w-full items-center">
             <img className="w-10" src={logo} alt="" />
             &nbsp;
@@ -64,6 +68,18 @@ const Header : FC<IHeaderProps> = ({width, active}) => {
             </div>
           </div>
         </div>
+        {
+          isLoggedIn && (
+            <div className="w-[150px] h-16 flex justify-center items-center ml-12" onClick={toggleProfile}>
+            <div className="h-16 flex items-center justify-center mr-3">
+              UserName
+            </div>
+            <div className="h-12 w-12 flex items-center justify-center rounded-full overflow-hidden bg-slate-200">
+              <img className="" src="logo.png" alt="" />
+            </div>
+          </div>
+          )
+        }
       </div>
     </div>
   );
