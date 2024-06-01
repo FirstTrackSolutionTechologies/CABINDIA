@@ -4,10 +4,6 @@ export const navItems = [
         link: '/'
     },
     {
-        name: 'Career',
-        link: '/career'
-    },
-    {
         name: 'Services',
         link: '/services',
         dropdown:true,
@@ -29,6 +25,14 @@ export const navItems = [
     {
         name: 'About Us',
         link: '/aboutus'
+    },
+    {
+        name: 'Career',
+        link: '/career'
+    },
+    {
+        name: 'Contact Us',
+        link: '/contact'
     }
     
 ]

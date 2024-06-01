@@ -17,7 +17,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full h-96 mx-auto mt-16 bg-gray-800">
+    <div className="relative w-full h-96 mt-16 bg-gray-800">
       <div className="relative overflow-hidden rounded-lg">
         <div
           className="flex transition-transform duration-500"
@@ -25,7 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         >
           {images.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0 flex justify-center">
-              <img  src={image} alt={`Slide ${index}`} className="w-[1400px] h-96" />
+              <img  src={image} alt={`Slide ${index}`} className="max-w-[1400px] h-96" />
             </div>
           ))}
         </div>

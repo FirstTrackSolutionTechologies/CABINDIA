@@ -31,33 +31,29 @@ const Booking = () => {
           </div>
         </div>
         <div className="flex flex-1 pb-4 px-4 bg-gray-800">
-          <div className="flex flex-col w-2/5 bg-gray-900 rounded-l-xl overflow-hidden justify-center items-center">
-            <div className="relative w-full h-1/5 bg-gray-900 text-3xl font-bold text-white border-2 rounded-tl-xl">
+          <div className="flex flex-col w-2/5 bg-gray-900 rounded-l-xl overflow-hidden items-center">
+            <div className="flex w-full h-32">
+            <div className="relative w-1/4 h-full bg-gray-900 text-xl font-bold text-white border-2 rounded-tl-xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">AUTO</div>
               </div>
             </div>
-            <div className="relative w-full h-1/5 bg-gray-900 text-3xl font-bold text-white border-2">
+            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">MINI</div>
               </div>
             </div>
-            <div className="relative w-full h-1/5 bg-gray-900 text-3xl font-bold text-white border-2">
+            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">MACRO</div>
               </div>
             </div>
-            <div className="relative w-full h-1/5 bg-gray-900 text-3xl font-bold text-white border-2">
+            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">BIKE</div>
               </div>
             </div>
-            <div className="relative w-full h-1/5 bg-gray-900 text-3xl font-bold text-white border-2 rounded-bl-xl">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" p-8 ">TRNASPORT</div>
-              </div>
             </div>
-            
           </div>
           <div className="flex w-3/5 bg-blue-400 rounded-r-xl justify-center items-center font-bold text-4xl">
             MAP
