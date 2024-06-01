@@ -53,18 +53,18 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
   const logo = "logo.png";
   return (
     <div className={`fixed lg:w-${width} w-full z-10 top-0`}>
-      <div className="flex w-full h-16 bg-gray-900 items-center px-3 py-2 justify-center text-white">
-        <div className="relative lg:w-3/5 w-full">
+      <div className="flex w-full h-16  items-center px-3 py-2 justify-center text-white">
+        <div className="relative lg:w-3/5 bg-gray-900 w-full">
           <div className="flex w-full items-center">
+            <Link to={'/'} className="flex h-16 items-center">
             <img className="w-10" src={logo} alt="" />
             &nbsp;
             <span className="text-md font-bold">CAB5155</span>
-            <div className="absolute right-0">
-              <div className="lg:flex justify-between w-96  hidden">
+            </Link>
+              <div className="flex justify-between w-96 ml-16  ">
                 {navItems.map((item : any, index) => (
                   <NavItem item={item} index={index} active={active} />
                 ))}
-              </div>
             </div>
           </div>
         </div>
