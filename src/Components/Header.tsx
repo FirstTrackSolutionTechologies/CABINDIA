@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { navItems } from "../Constants";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 
 interface IHeaderProps {
   width: string;
@@ -19,7 +20,7 @@ interface INavItemProps {
   active : string;
 }
 
-const NavItem : FC<INavItemProps> = ({index, item, active}) => {
+export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
   const [isDropdown, setIsDropdown] = useState<Boolean>(false)
   const toggleDropdown = () => {
     setIsDropdown(!isDropdown);  
@@ -47,13 +48,19 @@ const NavItem : FC<INavItemProps> = ({index, item, active}) => {
 
 const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
   const [isProfileMenu, setIsProfileMenu] = useState(false)
+  const [isMenu, setIsMenu] = useState(false)
   const toggleProfile = () => {
     setIsProfileMenu(!isProfileMenu)
   }
+  const toggleMenu = () => {
+    setIsMenu(!isMenu)
+  }
   const logo = "logo.png";
   return (
+    <>
+    <Menu isMenu={isMenu} />
     <div className={`fixed lg:w-${width} w-full z-10 top-0`}>
-      <div className="flex w-full h-16  items-center px-3 py-2 justify-center text-white">
+      <div className="relative flex w-full h-16  items-center px-3 py-2 justify-center text-white">
         <div className="relative lg:w-3/5 bg-gray-900 w-full">
           <div className="flex w-full items-center">
             <Link to={'/'} className="flex h-16 items-center">
@@ -61,7 +68,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
             &nbsp;
             <span className="text-md font-bold">CAB5155</span>
             </Link>
-              <div className="flex justify-between w-96 ml-16  ">
+              <div className="md:flex justify-between w-96 ml-16 hidden ">
                 {navItems.map((item : any, index) => (
                   <NavItem item={item} index={index} active={active} />
                 ))}
@@ -80,8 +87,13 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
           </div>
           )
         }
+        <button onClick={toggleMenu}  className={`block md:hidden absolute top-4 right-4 px-4 py-2 bg-yellow-400 text-black font-bold rounded-md`}>
+        {isMenu ? 'X' : 'Menu'}
+      </button>
+      
       </div>
     </div>
+    </>
   );
 };
 
