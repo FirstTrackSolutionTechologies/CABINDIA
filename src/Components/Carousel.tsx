@@ -25,7 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         >
           {images.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0 flex justify-center">
-              <img  src={image} alt={`Slide ${index}`} className="max-w-[1400px] h-96" />
+              <img  src={image} alt={`Slide ${index}`} className=" max-h-96" />
             </div>
           ))}
         </div>
