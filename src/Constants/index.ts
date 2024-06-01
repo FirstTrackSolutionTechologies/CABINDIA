@@ -14,11 +14,11 @@ export const navItems = [
             },
             {
                 name: 'Food Delivery',
-                link: '/foodDelivery'
+                link: 'https://dulcet-salmiakki-1848c9.netlify.app/'
             },
             {
-                name: 'Logistics',
-                link: '/logistics'
+                name: 'Parcel Delivery',
+                link: '/parcelDelivery'
             }
         ],
     },
