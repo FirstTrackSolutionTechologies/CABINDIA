@@ -106,7 +106,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
     <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="password" name='password' placeholder='Enter Password' />
     <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="password" name='confirmPassword' placeholder='Confirm Password' />
     <div className='p-1 -mb-2' onClick={()=>setIsLogin(!isLogin)}>Already have an account? Login Now</div>
-    <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4'>
+    <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4' type='submit'>
       Register
     </button>
   </form>
