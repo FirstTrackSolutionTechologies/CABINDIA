@@ -1,5 +1,5 @@
-import  { useState, FC } from 'react';
-import { redirect } from 'react-router-dom';
+import  { useState, FC,  } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 interface ILoginregisterProps {
@@ -8,6 +8,7 @@ interface ILoginregisterProps {
 }
 
 const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
+  const navigate = useNavigate()
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();  // Prevent the default form submission
 
@@ -31,7 +32,7 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          redirect('/dashboard')
+          navigate('/dashboard');
           // Handle successful login
         } else {
           alert('Login failed: ' + result.message);
@@ -85,7 +86,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          redirect('/dashboard')
+          alert('Login successful!');
           // Handle successful login
         } else {
           alert('Register failed: ' + result.message);
@@ -138,7 +139,7 @@ const RiderLogin: React.FC = () => {
       .then(result => {
         if (result.success) {
           alert('Login successful!');
-          redirect('/dashboard');
+          
           // Handle successful login
         } else {
           alert('Login failed: ' + result.message);
