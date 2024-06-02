@@ -86,7 +86,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          alert('Login successful!');
+          alert('Register successful!');
           // Handle successful login
         } else {
           alert('Register failed: ' + result.message);

@@ -3,20 +3,15 @@ const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 exports.handler = async (event, context) => {
-  // if (event.httpMethod !== 'POST') {
-  //   return {
-  //     statusCode: 405,
-  //     body: JSON.stringify({ message: 'Method Not Allowed' }),
-  //   };
-  // }
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Method Not Allowed' }),
+    };
+  }
 
-  // const { name,email, mobile ,password, confirmPassword } = JSON.parse(event.body);
+  const { name,email, mobile ,password, confirmPassword } = JSON.parse(event.body);
 
-  let name = "Aditya"
-  let email = "aditya@gmail.com"
-  let password = "password"
-  let confirmPassword = "password"
-  let mobile = "1234556678"
  console.log("hello")
   if (!email || !password || !confirmPassword || !name || !mobile) {
     return {
@@ -37,35 +32,21 @@ exports.handler = async (event, context) => {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
     });
-
-    const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?);', [name,email,mobile,password]);
-    console.log(rows)
+    [rows] = await connection.execute("SELECT * FROM users WHERE email = ?;", [email]);
+    if (rows.length === 0) {
+      await connection.execute('INSERT INTO users VALUES (?,?,?,?);', [name,email,mobile,password]);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: rows, success:true }),
+      body: JSON.stringify({ message: "Registered", success:true }),
     }
-    // if (rows.length === 0) {
-    //   return {
-    //     statusCode: 401,
-    //     body: JSON.stringify({ message: 'Invalid email or password' }),
-    //   };
-    // }
-
-    // const user = rows[0];
-
-    // if (user.password === password) { // Note: In a real-world scenario, you should hash and compare passwords
-    //   return {
-    //     statusCode: 200,
-    //     body: JSON.stringify({ message: 'Authentication successful', success: true }),
-    //   };
-    // } else {
-    //   return {
-    //     statusCode: 401,
-    //     body: JSON.stringify({ message: 'Invalid email or password', success: false }),
-    //   };
-    // }
+    }
+    return {
+      statusCode: 401,
+      body: JSON.stringify({ message: 'User Already Exists' , success:false}),
+    };
+    
   } catch (error) {
-    console.log("hello");
+    console.log(error);
 
     return {
       statusCode: 500,
