@@ -25,7 +25,6 @@ const Booking = () => {
 
 const [markerPosition, setMarkerPosition] = useState(center);
 // const [coordinates, setCoordinates] = useState<{lat : number, lng:number} | null>(null);
-const [address, setAddress] = useState<string | null>(null);
 
 const handleMapClick = async (event : any) => {
     const lat = event.latLng.lat();

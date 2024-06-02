@@ -1,4 +1,4 @@
-import  { useState, FC } from 'react';
+import  { useState} from 'react';
 import { navItems } from '../Constants';
 import { NavItem } from './Header';
 

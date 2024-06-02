@@ -1,7 +1,6 @@
 
 import Header from '../Components/Header'
 import Welcome from '../Components/Welcome'
-import Register from '../Components/Register'
 
 const Index = () => {
   return (
