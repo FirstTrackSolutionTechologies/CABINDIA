@@ -45,8 +45,8 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
   };
   return (
     <form className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
-      <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='email' placeholder='Your E-mail Address' />
-      <input className='bg-gray-900 p-4 w-80 mb-4' type="password" name='password' placeholder='Your Password' />
+      <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="text" name='email' placeholder='Your E-mail Address' />
+      <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="password" name='password' placeholder='Your Password' />
       <div className='p-1 -mb-2' onClick={()=>setIsLogin(!isLogin)}>Don't have an account? Register Now</div>
       <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4' type='submit'>
         Login
@@ -99,11 +99,11 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
   };
   return (
     <form className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
-    <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='fullName' placeholder='Full Name' />
-    <input className='bg-gray-900 p-4 w-80 mb-4' type="email" name='email' placeholder='Your E-mail Address' />
-    <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='mobile' placeholder='Your mobile number' />
-    <input className='bg-gray-900 p-4 w-80 mb-4' type="password" name='password' placeholder='Enter Password' />
-    <input className='bg-gray-900 p-4 w-80 mb-4' type="password" name='confirmPassword' placeholder='Confirm Password' />
+    <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="text" name='fullName' placeholder='Full Name' />
+    <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="email" name='email' placeholder='Your E-mail Address' />
+    <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="text" name='mobile' placeholder='Your mobile number' />
+    <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="password" name='password' placeholder='Enter Password' />
+    <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="password" name='confirmPassword' placeholder='Confirm Password' />
     <div className='p-1 -mb-2' onClick={()=>setIsLogin(!isLogin)}>Already have an account? Login Now</div>
     <button className=' w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4'>
       Register
@@ -152,8 +152,8 @@ const RiderLogin: React.FC = () => {
 
   return (
     <form id='myForm' className='text-yellow-400 bg-gray-800 p-4' onSubmit={handleLogin}>
-      <input className='bg-gray-900 p-4 w-80 mb-4' type="text" name='riderId' placeholder='Your Rider Id' />
-      <input className='bg-gray-900 p-4 w-80' type="password" name='password' placeholder='Your Password' />
+      <input className='bg-gray-900 p-4 xs:w-80 w-full mb-4' type="text" name='riderId' placeholder='Your Rider Id' />
+      <input className='bg-gray-900 p-4 xs:w-80 w-full' type="password" name='password' placeholder='Your Password' />
       
       <button className='w-32 p-4 bg-yellow-400 text-black font-bold rounded-xl mt-4' type="submit">
         Login
@@ -163,18 +163,18 @@ const RiderLogin: React.FC = () => {
 };
 
 
-const ChooseLogin = () => {
+const ChooseLogin = ({togglePanel, isOpen} : any) => {
   const [customerLogin, setCustomerLogin] = useState<Boolean>(true)
-  const [isOpen,setIsOpen] = useState<Boolean>(false)
   const [isLogin,setIsLogin] = useState<Boolean>(true)
-
-  const togglePanel = () => {
-  setIsOpen(!isOpen);
-}
+  
+  
   return (
     <>
-      <div className={`fixed top-0 right-0 ${isOpen?"w-96":"w-0"} h-full bg-white transition-all duration-300 ease-in-out z-50`}>
+      <div className={`fixed z-50 top-0 right-0 ${isOpen?"md:w-96 w-full":"w-0"} h-full bg-white transition-all duration-300 ease-in-out z-50`}>
       <button onClick={togglePanel} className={`md:block hidden absolute top-4 right-4 px-4 py-2 bg-yellow-400 text-black font-bold rounded-md`}>
+        {isOpen ? 'X' : 'Login'}
+      </button>
+      <button onClick={togglePanel} className={`${isOpen?"md:hidden block":"hidden"} absolute top-4 right-4 px-4 py-2 bg-yellow-400 text-black font-bold rounded-md`}>
         {isOpen ? 'X' : 'Login'}
       </button>
       <div className="flex flex-col justify-center p-4 bg-gray-900 h-screen text-white">

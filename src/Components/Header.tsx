@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { navItems } from "../Constants";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
+import Register from "./Register";
 
 interface IHeaderProps {
   width: string;
@@ -27,13 +28,14 @@ export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
   }
   return (
     <>
-      <div className="relative" onClick={item.dropdown?(toggleDropdown):(()=>{})}>
+      <div className="relative hover:text-yellow-400" onClick={item.dropdown?(toggleDropdown):(()=>{})}>
+        
       <Link key={index} to={(item.dropdown)?("#"):item.link}><p className={(active===item.name)?"font-bold":""}>{`${item.name}${item.dropdown?(isDropdown?" ▲":" ▼"):""}`}</p></Link>
       {isDropdown &&
         (<>
-          <div className="absolute top-8 w-48 p-4 bg-gray-800 text-yellow">
+          <div className="absolute top-8 w-48 p-4 bg-gray-800 text-white  z-50 ">
             {item.dropdownOptions.map((item: any, index) => (
-              <div className="py-2">
+              <div className="py-2 hover:text-yellow-400">
               <Link key={index} to={item.link}><p className={(active===item.name)?"font-bold":""}>{`${item.name}`}</p></Link>
               </div>
             ))}
@@ -48,18 +50,19 @@ export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
 
 const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
   const [isProfileMenu, setIsProfileMenu] = useState(false)
-  const [isMenu, setIsMenu] = useState(false)
   const toggleProfile = () => {
     setIsProfileMenu(!isProfileMenu)
   }
-  const toggleMenu = () => {
-    setIsMenu(!isMenu)
-  }
+  const [isOpen,setIsOpen] = useState<Boolean>(false)
+  const togglePanel = () => {
+  setIsOpen(!isOpen);
+}
   const logo = "logo.png";
   return (
     <>
-    <Menu isMenu={isMenu} />
-    <div className={`fixed lg:w-${width} w-full z-10 top-0`}>
+    <Menu  togglePanel={togglePanel} isOpen={isOpen} />
+    <Register togglePanel={togglePanel} isOpen={isOpen} />
+    <div className={`fixed lg:w-${width} w-full z-10 top-0 bg-gray-900 `}>
       <div className="relative flex w-full h-16  items-center px-3 py-2 justify-center text-white">
         <div className="relative lg:w-3/5 bg-gray-900 w-full">
           <div className="flex w-full items-center">
@@ -77,7 +80,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
         </div>
         {
           isLoggedIn && (
-            <div className="w-[150px] h-16 flex justify-center items-center ml-12" onClick={toggleProfile}>
+            <div className=" w-[150px] h-16 md:flex hidden justify-center items-center ml-12" onClick={toggleProfile}>
             <div className="h-16 flex items-center justify-center mr-3">
               UserName
             </div>
@@ -87,9 +90,6 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
           </div>
           )
         }
-        <button onClick={toggleMenu}  className={`block md:hidden absolute top-4 right-4 px-4 py-2 bg-yellow-400 text-black font-bold rounded-md`}>
-        {isMenu ? 'X' : 'Menu'}
-      </button>
       
       </div>
     </div>

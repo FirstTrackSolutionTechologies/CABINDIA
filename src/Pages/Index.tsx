@@ -8,7 +8,6 @@ const Index = () => {
     <>
         <Header width='full' active="Home" isLoggedIn={false} />
         <Welcome />
-        <Register />
     </>
   )
 }
