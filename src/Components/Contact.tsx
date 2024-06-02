@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = async (e : any) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/contact', formData);
+      const response = await axios.post('/.netlify/functions/contact', formData);
       alert('Email sent successfully: ' + response.data);
     } catch (error :any) {
       alert('Error sending email: ' + error.toString());
