@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import { useState } from 'react';
 
 const Contact = () => {
@@ -18,12 +18,38 @@ const Contact = () => {
   
   const handleSubmit = async (e : any) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('/api/contact', formData);
-      alert('Email sent successfully: ' + response.data);
-    } catch (error :any) {
-      alert('Error sending email: ' + error.toString());
-    }
+    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
+    const name = (document.querySelector('input[name="name"]') as HTMLInputElement).value;
+    const message = (document.querySelector('textarea[name="message"]') as HTMLInputElement).value;
+
+    const data = {
+      name,
+      email,
+      message
+    };
+
+    // Make the API call
+    fetch('/.netlify/functions/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert("Email sent successfully");
+          // Handle successful login
+        } else {
+          alert('Email failed: ' + result.message);
+          // Handle login failure
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during Email');
+      });
   };
   return (
     <>

@@ -21,7 +21,7 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
     };
 
     // Make the API call
-    fetch('/api/auth', {
+    fetch('/.netlify/functions/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
     };
 
     // Make the API call
-    fetch('/api/register', {
+    fetch('/.netlify/functions/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -125,9 +125,9 @@ const RiderLogin: React.FC = () => {
       riderId,
       password,
     };
-
+    
     // Make the API call
-    fetch('/api/auth', {
+    fetch('/.netlify/functions/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -138,6 +138,7 @@ const RiderLogin: React.FC = () => {
       .then(result => {
         if (result.success) {
           alert('Login successful!');
+          redirect('/dashboard');
           // Handle successful login
         } else {
           alert('Login failed: ' + result.message);
