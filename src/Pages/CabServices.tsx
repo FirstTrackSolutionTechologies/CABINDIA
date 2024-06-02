@@ -56,8 +56,8 @@ const CabServices = () => {
     <>
         <Header width="full" active="Cabs" isLoggedIn={true} />
         <Carousel images={['career_1.jpg']} />
-        <div className="text-center w-full h-32 py-8 bg-gray-800 flex justify-center items-center sm:text-5xl text-2xl font-bold text-white">
-            WE ARE ALWAYS AT YOUR SERVICE
+        <div className="text-center w-full h-32 py-8 bg-gray-800 flex justify-center items-center md:text-5xl text-4xl font-bold text-white">
+            EXPLORE OUR CAB SERVICES
         </div>
         <RightServiceCard />
         <LeftServiceCard />
