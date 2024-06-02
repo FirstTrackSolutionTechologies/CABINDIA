@@ -1,11 +1,11 @@
 const Welcome = () => {
   const welcome = "welcome.jpg";
   return (
-    <div className="flex h-screen bg-gray-900">
+    <div className="flex h-screen bg-gray-900 md:items-center">
       <div className="flex-col text-white lg:w-2/3 w-full bg-gray-900 flex items-center justify-center sm:p-0 px-5 ">
         <div className="flex justify-center items-center flex-col">
-        <p className="md:text-5xl text-6xl font-extrabold sm:block flex flex-col items-center">GET YOUR <span className="text-yellow-400">FIRST RIDE</span> NOW</p>
-        <p className="md:text-xl text-sm sm:mt-0 mt-10 text-white ">BIKES • CARS • TRANSPORTATION • SCHEDULED RIDES</p>
+        <p className="text-center md:text-6xl text-5xl font-extrabold sm:block flex flex-col items-center">GET YOUR <span className="text-yellow-400">FIRST RIDE</span> NOW</p>
+        <p className="text-center md:text-xl text-sm sm:mt-0 mt-10 text-white ">BIKES • CARS • TRANSPORTATION • SCHEDULED RIDES</p>
         <div className="md:w-auto w-full">
           <form
             className="flex md:flex-row flex-col w-full items-center justify-between mt-16"
