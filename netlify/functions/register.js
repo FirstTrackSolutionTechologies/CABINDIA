@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME,
     });
 
-    const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?))', [name,email,mobile,password]);
+    const [rows] = await connection.execute('INSERT INTO users VALUES (?,?,?,?);', [name,email,mobile,password]);
     console.log(rows)
     return {
       statusCode: 200,

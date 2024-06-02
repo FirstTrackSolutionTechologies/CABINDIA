@@ -36,9 +36,15 @@ exports.handler = async (event, context) => {
     // Send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            return res.status(500).send(error.toString());
+            return {
+                statusCode: 500,
+                body: JSON.stringify({ message: error.toString() , success: false }),
+              };
         }
-        res.status(200).send('Email sent: ' + info.response);
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ message: "success" , success: true }),
+          };
     });
   } catch (error) {
     return {
