@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = async (e : any) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/send-email', formData);
+      const response = await axios.post('/api/contact', formData);
       alert('Email sent successfully: ' + response.data);
     } catch (error :any) {
       alert('Error sending email: ' + error.toString());
