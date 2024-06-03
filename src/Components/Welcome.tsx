@@ -1,7 +1,7 @@
 const Welcome = () => {
   const welcome = "welcome.jpg";
   return (
-    <div className="flex h-screen bg-gray-900 md:items-center">
+    <div className="flex absolute inset-0 mt-16 bg-gray-900 md:items-center">
       <div className="flex-col text-white lg:w-2/3 w-full bg-gray-900 flex items-center justify-center sm:p-0 px-5 ">
         <div className="flex justify-center items-center flex-col">
         <p className="text-center md:text-6xl text-5xl font-extrabold sm:block flex flex-col items-center  ">GET YOUR <span className="text-yellow-400">FIRST RIDE</span> NOW</p>

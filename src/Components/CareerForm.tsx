@@ -1,7 +1,7 @@
 const CareerForm = () => {
   return (
     <div className="w-full flex flex-col items-center bg-gray-950 p-6">
-      <div className="text-yellow-400 text-6xl font-bold text-center">
+      <div className="text-yellow-400 md:text-6xl text-3xl font-bold text-center">
         JOIN OUR TEAM
       </div>
       <form

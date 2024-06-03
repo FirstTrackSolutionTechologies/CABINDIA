@@ -77,8 +77,8 @@ useEffect(() => {
   return (
     <>
       <div className="h-screen flex relative w-full  flex-col">
-        <div className={`md:h-16 lg:static absolute z-50 transition-all duration-300 ${isSDF?"h-48":"h-0"} lg:rounded-b-xl rounded-none w-full flex flex-col justify-center items-center bg-gray-800 mt-16`}>
-          <div className="md:w-[700px] w-full  h-full items-center justify-center">
+        <div className={`md:h-16 lg:static absolute z-20 transition-all duration-300 ${isSDF?"h-48":"h-0"} lg:rounded-b-xl rounded-none w-full flex flex-col justify-center items-center bg-gray-800 mt-16`}>
+          <div className={`md:w-[700px] w-full overflow-hidden  h-full items-center justify-center`}>
             <form
               className="flex md:flex-row sm:px-0 px-5 flex-col w-full items-center justify-between h-full"
               action=""
@@ -168,7 +168,7 @@ useEffect(() => {
                     <div className='flex flex-1 flex-col sm:text-xl text-md w-full items-center'>
                     <p className='text-center text-gray-400'>Age : 29</p>
                     <p className='text-center text-gray-400'>Rating: 4.7</p>
-                    <p className='text-center text-white  sm:text-2xl  xs:text-lg  text-sm  '>AB01C1234</p>
+                    <p className='text-center text-white sm:text-2xl text-lg'>AB01C1234</p>
                     </div>
                     <div className='w-full flex flex-1 justify-center border-l-2 border-dashed border-gray-400 h-[100px] relative items-center'>
                       

@@ -8,7 +8,7 @@ const RightServiceCard = () => {
         <>
             <div className="flex w-full bg-gray-800 justify-center items-center py-4 ">
                 <div className="flex xl:flex-row-reverse flex-col-reverse justify-center items-center xl:w-4/5 w-full ">
-                    <div className=" flex flex-col justify-center xl:w-2/3 w-4/5 xl:h-[500px] h-auto bg-gray-700 text-white font-md p-10 shadow-all shadow-gray-900 rounded-3xl overflow-hidden">
+                    <div className=" flex flex-col justify-center xl:w-2/3 w-4/5 xl:h-[500px] h-auto bg-gray-700 text-white font-md sm:p-10 p-3 shadow-all shadow-gray-900 rounded-3xl overflow-hidden">
                         <div className="text-3xl my-2">
                             SERVICE TITLE
                         </div>
@@ -31,7 +31,7 @@ const LeftServiceCard = () => {
         <>
             <div className="flex w-full bg-gray-800 justify-center items-center py-4 ">
                 <div className="flex xl:flex-row flex-col-reverse justify-center items-center xl:w-4/5 w-full ">
-                    <div className=" flex flex-col justify-center xl:w-2/3 w-4/5 xl:h-[500px] h-auto bg-gray-700 text-white font-md p-10 shadow-all shadow-gray-900 rounded-3xl overflow-hidden">
+                    <div className=" flex flex-col justify-center xl:w-2/3 w-4/5 xl:h-[500px] h-auto bg-gray-700 text-white font-md sm:p-10 p-3 shadow-all shadow-gray-900 rounded-3xl overflow-hidden">
                         <div className="text-3xl my-2">
                             SERVICE TITLE
                         </div>
