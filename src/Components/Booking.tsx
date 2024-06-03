@@ -198,7 +198,7 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2 w-full flex bg-slate-400">
+          <div className="lg:w-1/2 w-full lg:static absolute inset-0 flex bg-slate-400">
           {isLoaded ? (
         <>
             <GoogleMap
