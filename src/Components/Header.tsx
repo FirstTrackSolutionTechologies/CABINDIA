@@ -8,8 +8,6 @@ interface IHeaderProps {
   width: string;
   active: string;
   isLoggedIn: Boolean;
-  setCustIsLoggedIn : any,
-  isCustLoggedIn : any
 }
 
 interface INavItemProps {
@@ -50,7 +48,7 @@ export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
   )
 }
 
-const Header : FC<IHeaderProps> = ({width, active, isLoggedIn, setCustIsLoggedIn, isCustLoggedIn }) => {
+const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
   const [isProfileMenu, setIsProfileMenu] = useState(false)
   const toggleProfile = () => {
     setIsProfileMenu(!isProfileMenu)
@@ -63,7 +61,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn, setCustIsLoggedIn
   return (
     <>
     <Menu  togglePanel={togglePanel} isOpen={isOpen} />
-    <Register togglePanel={togglePanel} isOpen={isOpen} setCustIsLoggedIn={setCustIsLoggedIn} isCustLoggedIn={isCustLoggedIn} />
+    <Register togglePanel={togglePanel} isOpen={isOpen} />
     <div className={`sticky lg:w-${width} w-full z-20 top-0 bg-gray-900 `}>
     
       <div className="relative flex w-full h-16  items-center px-3 py-2 justify-center text-white">

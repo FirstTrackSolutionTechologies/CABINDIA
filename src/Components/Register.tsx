@@ -5,10 +5,8 @@ import { useNavigate } from 'react-router-dom';
 interface ILoginregisterProps {
   isLogin: Boolean;
   setIsLogin : React.Dispatch<React.SetStateAction<Boolean>>;
-  setCustIsLoggedIn :any,
-  isCustLoggedIn: Boolean
 }
-const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin, setCustIsLoggedIn, isCustLoggedIn}) => {
+const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
   const navigate = useNavigate()
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();  // Prevent the default form submission
@@ -33,8 +31,6 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin, setCustIs
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          setCustIsLoggedIn(true)
-          alert(isCustLoggedIn)
           navigate('/dashboard');
           
           // Handle successful login
@@ -169,7 +165,7 @@ const RiderLogin: React.FC = () => {
 };
 
 
-const ChooseLogin = ({togglePanel, isOpen, setCustIsLoggedIn, isCustLoggedIn} : any) => {
+const ChooseLogin = ({togglePanel, isOpen} : any) => {
   const [customerLogin, setCustomerLogin] = useState<Boolean>(true)
   const [isLogin,setIsLogin] = useState<Boolean>(true)
   
@@ -190,8 +186,8 @@ const ChooseLogin = ({togglePanel, isOpen, setCustIsLoggedIn, isCustLoggedIn} : 
 
           <div className={` flex justify-center items-center h-10 w-20 ${customerLogin?"bg-gray-800 text-white":"bg-yellow-400 text-black"} text-sm`} onClick={()=>{setCustomerLogin(true)}}>Customer</div>
         </div>
-        {(customerLogin && isLogin) && <CustomerLogin isLogin={isLogin} setIsLogin={setIsLogin} setCustIsLoggedIn={setCustIsLoggedIn} isCustLoggedIn={isCustLoggedIn} />}
-        {(customerLogin && !isLogin) && <CustomerRegister  isLogin={isLogin} setIsLogin={setIsLogin} setCustIsLoggedIn={setCustIsLoggedIn} isCustLoggedIn={isCustLoggedIn} />}
+        {(customerLogin && isLogin) && <CustomerLogin isLogin={isLogin} setIsLogin={setIsLogin} />}
+        {(customerLogin && !isLogin) && <CustomerRegister  isLogin={isLogin} setIsLogin={setIsLogin} />}
         {(!customerLogin) && <RiderLogin />}
 
       </div>
