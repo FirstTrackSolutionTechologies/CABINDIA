@@ -5,6 +5,7 @@ export default {
     extend: {
       boxShadow: {
         'all': '0 0 15px',
+        'cabCard' : '0 0 5px'
       },
     },
   },
