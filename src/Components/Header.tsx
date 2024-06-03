@@ -62,7 +62,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
     <>
     <Menu  togglePanel={togglePanel} isOpen={isOpen} />
     <Register togglePanel={togglePanel} isOpen={isOpen} />
-    <div className={`fixed lg:w-${width} w-full z-10 top-0 bg-gray-900 `}>
+    <div className={`fixed lg:w-${width} w-full z-20 top-0 bg-gray-900 `}>
     
       <div className="relative flex w-full h-16  items-center px-3 py-2 justify-center text-white">
         <div className="relative lg:w-3/5 bg-gray-900 w-full">
