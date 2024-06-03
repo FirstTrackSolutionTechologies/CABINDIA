@@ -66,18 +66,21 @@ useEffect(() => {
       console.error('Geolocation is not supported by this browser.');
   }
 }, []);
-
+  const [info, setInfo] = useState<Boolean>(true)
+  const toggleInfo = () => {
+    setInfo(!info);
+  }
   return (
     <>
       <div className="h-screen flex  flex-col">
         <div className="h-16 w-full flex flex-col justify-center items-center bg-gray-800 mt-16">
-          <div className="w-[700px] min-w-[700px] h-16 items-center justify-center">
+          <div className="md:w-[700px] w-full  h-16 items-center justify-center">
             <form
-              className="flex w-full items-center justify-between h-16"
+              className="flex md:flex-row flex-col w-full items-center justify-between h-16"
               action=""
             >
               <input
-                className="w-60 h-10 rounded-xl p-2 text-black font-bold bg-white"
+                className="md:w-60 w-1/2 h-10 rounded-xl p-2 text-black font-bold bg-white"
                 placeholder="Source"
                 onChange={handleChange}
                 value={formData.source}
@@ -88,7 +91,7 @@ useEffect(() => {
                 • • •
               </div>
               <input
-                className="w-60 h-10 rounded-xl p-2 text-black font-bold bg-white"
+                className="md:w-60 w-1/2 h-10 rounded-xl p-2 text-black font-bold bg-white"
                 type="text"
                 onChange={handleChange}
                 value={formData.destination}
@@ -103,38 +106,38 @@ useEffect(() => {
           </div>
         </div>
         <div className="flex w-full justify-center flex-1 pb-4 px-4 bg-gray-800">
-          <div className="lg:flex absolute lg:h-full h-4/5 bottom-0 z-30 lg:static flex-col lg:w-1/2 w-3/4 bg-gray-900 rounded-xl overflow-hidden items-center">
-            <div className="flex w-full h-16">
-            <div className="relative w-1/4 h-full bg-gray-900 text-xl font-bold text-white border-2 border-gray-900 rounded-tl-xl">
+          <div onClick={()=>{toggleInfo()}} className={`lg:flex absolute lg:h-full ${true?"h-auto":"h-0"} transition-all duration-300 bottom-0 z-30 lg:static flex-col lg:w-1/2 md:w-3/4 w-full bg-gray-900 rounded-xl overflow-hidden items-center`}>
+            <div className="flex justify-evenly w-full h-16">
+            <div className="relative flex flex-1 h-full bg-gray-900 text-xl font-bold text-white border-2 border-gray-900 rounded-tl-xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">AUTO</div>
               </div>
             </div>
-            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
+            <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">MINI</div>
               </div>
             </div>
-            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
+            <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">MACRO</div>
               </div>
             </div>
-            <div className="relative w-1/4 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
+            <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">BIKE</div>
               </div>
             </div>
             </div>
-            <div className='w-full flex relative h-4/5 p-6'>
-              <div className='p-3 w-full relative h-full bg-[rgba(255,255,255,0.1)] shadow-cabCard shadow-gray-100 rounded-3xl flex items-center justify-center'>
+            <div className='w-full flex relative md:h-4/5 p-6'>
+              <div className='p-3 w-full relative h-full bg-[rgba(255,255,255,0.1)] shadow-cabCard shadow-gray-100 rounded-3xl flex flex-col items-center justify-evenly'>
               <div className='p-3 w-full flex items-center text-white justify-evenly border-2 rounded-xl'>
                   <div className='flex flex-1 flex-col justify-center items-center '>
-                    <img src="logo.png" alt="" className='h-32'/>
-                    <p className='text-xl text-white font-medium'>ELECTRIC AUTO</p>
+                    <img src="logo.png" alt="" className='sm:h-32 h-16'/>
+                    <p className='sm:text-xl text-lg text-white text-center font-medium'>AUTO</p>
                   </div>
                   {/* <div className='font-bold text-white flex flex-1 items-center justify-evenly text-left  h-20'> */}
-                    <div className='flex flex-1 flex-col text-xl w-full items-center'>
+                    <div className='flex flex-1 flex-col sm:text-xl text-md w-full items-center'>
                     <p className='text-center text-gray-400'>Type : Electric</p>
                     <p className='text-center text-gray-400'>Capacity : 5</p>
                     <p className='text-center text-gray-400'>Est. Time : 5 mins</p>
@@ -146,7 +149,26 @@ useEffect(() => {
                     {/* <p>No hassle, Right at your doorstep</p> */}
                   {/* </div> */}
               </div>
+              <div className='p-3 w-full flex items-center text-white justify-evenly border-2 mt-2 rounded-xl'>
+                  <div className='flex flex-1 flex-col justify-center items-center '>
+                    <img src="logo.png" alt="" className='sm:h-32 h-16'/>
+                    <p className='sm:text-xl xs:text-lg text-md text-white font-medium text-center'>DRIVER NAME</p>
+                  </div>
+                  {/* <div className='font-bold text-white flex flex-1 items-center justify-evenly text-left  h-20'> */}
+                    <div className='flex flex-1 flex-col sm:text-xl text-md w-full items-center'>
+                    <p className='text-center text-gray-400'>Age : 29</p>
+                    <p className='text-center text-gray-400'>Rating: 4.7</p>
+                    <p className='text-center text-white sm:text-2xl text-lg'>AB01C1234</p>
+                    </div>
+                    <div className='w-full flex flex-1 justify-center border-l-2 border-dashed border-gray-400 h-[100px] relative items-center'>
+                      
+                    <p className='text-center text-xl text-green-400'></p>
+                    </div>
+                    {/* <p>No hassle, Right at your doorstep</p> */}
+                  {/* </div> */}
               </div>
+              </div>
+              
             </div>
             <div className='h-16  w-full px-6 flex items-center justify-between'>
               <div className='flex items-center justify-center h-16 w-1/2 rounded-xl  '>
