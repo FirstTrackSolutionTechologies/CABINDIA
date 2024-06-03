@@ -63,7 +63,7 @@ const CustomerRegister  : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
     // Manually collect form data
     const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
     const password = (document.querySelector('input[name="password"]') as HTMLInputElement).value;
-    const name = (document.querySelector('input[name="name"]') as HTMLInputElement).value;
+    const name = (document.querySelector('input[name="fullName"]') as HTMLInputElement).value;
     const confirmPassword = (document.querySelector('input[name="confirmPassword"]') as HTMLInputElement).value;
     const mobile = (document.querySelector('input[name="mobile"]') as HTMLInputElement).value;
 
