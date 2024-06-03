@@ -17,7 +17,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full sm:h-96 h-48 mt-16 bg-gray-800">
+    <div className="relative w-full sm:h-96 h-48 bg-gray-800">
       <div className="relative overflow-hidden rounded-lg">
         <div
           className="flex transition-transform duration-500"
