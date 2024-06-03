@@ -1,6 +1,5 @@
 import Carousel from "../Components/Carousel"
 import Footer from "../Components/Footer"
-import Header from "../Components/Header"
 
 
 const RightServiceCard = () => {
@@ -54,7 +53,6 @@ const LeftServiceCard = () => {
 const CabServices = () => {
   return (
     <>
-        <Header width="full" active="Cabs" isLoggedIn={true} />
         <Carousel images={['career_1.jpg']} />
         <div className="text-center w-full h-32 py-8 bg-gray-800 flex justify-center items-center md:text-5xl text-4xl font-bold text-white">
             EXPLORE OUR CAB SERVICES

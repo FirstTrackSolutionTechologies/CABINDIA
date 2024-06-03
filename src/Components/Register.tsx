@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 interface ILoginregisterProps {
   isLogin: Boolean;
   setIsLogin : React.Dispatch<React.SetStateAction<Boolean>>;
+  setCustIsLoggedIn :any
 }
 
-const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
+const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin, setCustIsLoggedIn}) => {
   const navigate = useNavigate()
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();  // Prevent the default form submission
@@ -32,7 +33,9 @@ const CustomerLogin : FC<ILoginregisterProps> = ({isLogin, setIsLogin}) => {
       .then(response => response.json())
       .then(result => {
         if (result.success) {
+          setCustIsLoggedIn(true)
           navigate('/dashboard');
+          
           // Handle successful login
         } else {
           alert('Login failed: ' + result.message);
@@ -165,7 +168,7 @@ const RiderLogin: React.FC = () => {
 };
 
 
-const ChooseLogin = ({togglePanel, isOpen} : any) => {
+const ChooseLogin = ({togglePanel, isOpen, setCustIsLoggedIn} : any) => {
   const [customerLogin, setCustomerLogin] = useState<Boolean>(true)
   const [isLogin,setIsLogin] = useState<Boolean>(true)
   
@@ -186,8 +189,8 @@ const ChooseLogin = ({togglePanel, isOpen} : any) => {
 
           <div className={` flex justify-center items-center h-10 w-20 ${customerLogin?"bg-gray-800 text-white":"bg-yellow-400 text-black"} text-sm`} onClick={()=>{setCustomerLogin(true)}}>Customer</div>
         </div>
-        {(customerLogin && isLogin) && <CustomerLogin isLogin={isLogin} setIsLogin={setIsLogin} />}
-        {(customerLogin && !isLogin) && <CustomerRegister  isLogin={isLogin} setIsLogin={setIsLogin} />}
+        {(customerLogin && isLogin) && <CustomerLogin isLogin={isLogin} setIsLogin={setIsLogin} setCustIsLoggedIn={setCustIsLoggedIn} />}
+        {(customerLogin && !isLogin) && <CustomerRegister  isLogin={isLogin} setIsLogin={setIsLogin} setCustIsLoggedIn={setCustIsLoggedIn} />}
         {(!customerLogin) && <RiderLogin />}
 
       </div>

@@ -1,14 +1,15 @@
+import { useEffect } from 'react';
 import Booking from '../Components/Booking'
-import Header from '../Components/Header'
+import { useNavigate } from 'react-router-dom'
 
-const Dashboard = () => {
-  
-
+const Dashboard = ({isLoggedIn} : any) => {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    isLoggedIn?(''):(navigate('/'))
+  },[])
   return (
     <>
-        <Header width='full' active='' isLoggedIn={true} />
-        <Booking />
-        
+        {isLoggedIn?<Booking />:null}
     </>
   )
 }
