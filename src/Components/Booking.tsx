@@ -106,9 +106,9 @@ useEffect(() => {
           </div>
         </div>
         <div className="flex w-full justify-center flex-1 pb-4 px-4 bg-gray-800">
-          <div onClick={()=>{toggleInfo()}} className={`lg:flex absolute lg:h-full ${true?"h-auto":"h-0"} transition-all duration-300 bottom-0 z-30 lg:static flex-col lg:w-1/2 md:w-3/4 w-full bg-gray-900 rounded-xl overflow-hidden items-center`}>
+          <div  className={`lg:flex absolute lg:h-full ${info?"h-auto":"h-10"} transition-all duration-300 bottom-0 z-30 lg:static flex-col lg:w-1/2 md:w-3/4 w-full bg-gray-900 rounded-xl overflow-hidden items-center`}>
             <div className="flex justify-evenly w-full h-16">
-            <div className="relative flex flex-1 h-full bg-gray-900 text-xl font-bold text-white border-2 border-gray-900 rounded-tl-xl">
+            <div onClick={()=>{toggleInfo()}} className="relative flex flex-1 h-full bg-gray-900 text-xl font-bold text-white border-2 border-gray-900 rounded-tl-xl">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className=" p-8 ">AUTO</div>
               </div>
