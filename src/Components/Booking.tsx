@@ -76,7 +76,7 @@ useEffect(() => {
   }
   return (
     <>
-      <div className="h-screen flex w-full absolute inset-0 pt-16  flex-col">
+      <div className=" flex w-full absolute inset-0 pt-16  flex-col">
         <div className={`md:h-16 lg:static absolute z-10 transition-all duration-300 ${isSDF?"h-48":"h-6"} lg:rounded-b-xl rounded-none w-full flex flex-col justify-center items-center bg-gray-800 `}>
           <div className={`md:w-[700px] w-full overflow-hidden  h-full items-center justify-center`}>
             <form
