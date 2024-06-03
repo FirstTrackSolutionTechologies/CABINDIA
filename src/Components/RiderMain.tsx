@@ -21,7 +21,6 @@ const [center,setCenter] = useState({
   lat: 26.6469618,
   lng: 84.9088929
 });
-setCenter(center);
 const [markerPosition, setMarkerPosition] = useState(center);
 // const [coordinates, setCoordinates] = useState<{lat : number, lng:number} | null>(null);
 
@@ -77,7 +76,7 @@ const handleMapClick = async (event : any) => {
             <div className='h-24 flex-1 flex flex-col items-center justify-center'>
               <p className='font-bold'>Aditya Kumar</p>
               <p className=''>Motihari</p>
-              <p className=''>Bhagalpur</p>
+              <p onClick={()=>setCenter(center)} className=''>Bhagalpur</p>
             </div>
           </div>
           <div className='w-full px-4 flex my-3'>

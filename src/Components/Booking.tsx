@@ -8,7 +8,7 @@ const Booking = () => {
     source: '',
     destination : ''
   })
-  setFormData({source: '', destination:''})
+  
   const containerStyle = {
     width: '100%',
     height: '100%',
@@ -163,7 +163,7 @@ useEffect(() => {
           
         </div>
 
-        <div onClick={()=>stepUp()} className={`absolute ${step==3?"":"hidden"} bottom-0 sm:w-[400px] w-full bg-white py-4 flex flex-col justify-center items-center`}>
+        <div onClick={()=>setFormData({source: '', destination:''})} className={`absolute ${step==3?"":"hidden"} bottom-0 sm:w-[400px] w-full bg-white py-4 flex flex-col justify-center items-center`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             YOUR RIDE INFO
           </div>
