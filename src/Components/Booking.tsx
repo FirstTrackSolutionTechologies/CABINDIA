@@ -66,14 +66,18 @@ useEffect(() => {
       console.error('Geolocation is not supported by this browser.');
   }
 }, []);
-  const [info, setInfo] = useState<Boolean>(true)
+  const [info, setInfo] = useState<Boolean>(false)
   const toggleInfo = () => {
     setInfo(!info);
   }
+  const [isSDF, setIsSDF] = useState<Boolean>(true)
+  const toggleSDF = () => {
+    setIsSDF(!isSDF)
+  }
   return (
     <>
-      <div className="h-screen flex  flex-col">
-        <div className="md:h-16 h-48 lg:rounded-b-xl rounded-none w-full flex flex-col justify-center items-center bg-gray-800 mt-16">
+      <div className="h-screen flex relative w-full  flex-col">
+        <div className={`md:h-16 lg:static absolute z-50 transition-all duration-300 ${isSDF?"h-48":"h-0"} lg:rounded-b-xl rounded-none w-full flex flex-col justify-center items-center bg-gray-800 mt-16`}>
           <div className="md:w-[700px] w-full  h-full items-center justify-center">
             <form
               className="flex md:flex-row sm:px-0 px-5 flex-col w-full items-center justify-between h-full"
@@ -104,34 +108,34 @@ useEffect(() => {
               </button>
             </form>
           </div>
-          <div onClick={()=>{toggleInfo()}} className='w-full h-8 block lg:hidden bg-gray-700 rounded-b-xl text-center text-white'>
+          <div onClick={()=>{toggleSDF()}} className='w-full h-8 block lg:hidden bg-gray-700 rounded-b-xl text-center text-white'>
               Down
             </div>
         </div>
         <div className="flex w-full justify-center flex-1 pb-4 px-4 bg-gray-800">
           <div  className={`lg:flex absolute lg:h-full ${info?"max-h-full":"lg:max-h-full max-h-8"} transition-all duration-300 bottom-0 z-30 lg:static flex-col lg:w-1/2 md:w-3/4 w-full bg-gray-900 rounded-xl overflow-hidden items-center`}>
-            <div onClick={()=>{toggleInfo()}} className='w-full h-8 block lg:hidden bg-gray-700 rounded-t-xl text-center text-white'>
+            <div onClick={()=>{toggleInfo()}} className='w-full h-8 block lg:hidden items-center justify-center bg-yellow-400 rounded-t-xl text-center text-black'>
               Down
             </div>
             <div className="flex justify-evenly w-full h-16">
             <div  className="relative flex flex-1 h-full bg-gray-900 text-xl font-bold text-white border-2 border-gray-900 rounded-tl-xl">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" p-8 ">AUTO</div>
+                <div className=" p-3 ">AUTO</div>
               </div>
             </div>
             <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" p-8 ">MINI</div>
+                <div className=" p-3 ">MINI</div>
               </div>
             </div>
             <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" p-8 ">MACRO</div>
+                <div className=" p-3 ">MACRO</div>
               </div>
             </div>
             <div className="relative flex flex-1 h-full bg-yellow-400 text-xl font-bold text-black border-2 border-gray-900">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className=" p-8 ">BIKE</div>
+                <div className=" p-3 ">BIKE</div>
               </div>
             </div>
             </div>
@@ -164,7 +168,7 @@ useEffect(() => {
                     <div className='flex flex-1 flex-col sm:text-xl text-md w-full items-center'>
                     <p className='text-center text-gray-400'>Age : 29</p>
                     <p className='text-center text-gray-400'>Rating: 4.7</p>
-                    <p className='text-center text-white sm:text-2xl text-lg'>AB01C1234</p>
+                    <p className='text-center text-white  sm:text-2xl  xs:text-lg  text-sm  '>AB01C1234</p>
                     </div>
                     <div className='w-full flex flex-1 justify-center border-l-2 border-dashed border-gray-400 h-[100px] relative items-center'>
                       
