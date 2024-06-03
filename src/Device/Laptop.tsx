@@ -12,7 +12,7 @@ const Laptop = () => {
   const [isCustLoggedIn, setCustIsLoggedIn] = useState<Boolean>(false)
   return (
     <>
-      <Header width='full' active="Home" isLoggedIn={false} setCustIsLoggedIn={setCustIsLoggedIn} />
+      <Header width='full' active="Home" isLoggedIn={false} setCustIsLoggedIn={setCustIsLoggedIn} isCustLoggedIn={isCustLoggedIn} />
       <Routes>
         <Route index element={<Index/>} />
         <Route path="/aboutus" element={<AboutUs/>} />
