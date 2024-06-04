@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const { name, email, message } = JSON.parse(event.body);
+  const { name, email,  mobile, message } = JSON.parse(event.body);
 
 
   try {
@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
         // to: 'info@firsttracksolution.tech', // replace with the recipient's email
         to: process.env.CONTACT_SERVICE_EMAIL, // replace with the recipient's email
         subject: `Contact form submission from ${name}`,
-        text: message
+        text: message + ' ' + email + ' ' + mobile 
     };
 
     // Send mail with defined transport object

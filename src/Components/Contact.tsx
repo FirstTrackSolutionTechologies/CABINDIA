@@ -5,6 +5,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    mobile: '',
     message: ''
   });
 
@@ -64,6 +65,7 @@ const Contact = () => {
       <form onSubmit={handleSubmit} action="" className="h-96 flex flex-col sm:w-3/4 px-6 justify-between py-6 md:w-96 w-full text-yellow-400">
         <input value={formData.name} onChange={handleChange} required className="md:w-80 w-full p-2 rounded-xl bg-gray-800" type="text" name="name" placeholder="Your good name" />
         <input value={formData.email} onChange={handleChange} required className="md:w-80 w-full p-2 rounded-xl bg-gray-800" type="email" name="email" placeholder="Your E-mail Address" />
+        <input value={formData.mobile} onChange={handleChange} required className="md:w-80 w-full p-2 rounded-xl bg-gray-800" type="text" name="mobile" placeholder="Your Mobile Number" />
         <textarea value={formData.message} onChange={handleChange} required name="message" className="h-32 md:w-96 w-full p-2 rounded-xl bg-gray-800" placeholder="Your Message" />
         <button className="w-32 h-10 p-2 bg-gray-800 hover:bg-yellow-400 hover:text-black rounded-xl  text-white">
               Submit
