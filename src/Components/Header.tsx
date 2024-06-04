@@ -71,7 +71,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
             <Link to={'/'} className="flex h-16 items-center">
             <img className="w-10" src={logo} alt="" />
             &nbsp;
-            <span className="text-md font-bold">CAB5155</span>
+            <span className="text-md font-bold">CABINDIA</span>
             </Link>
               <div className="md:flex justify-between w-96 ml-16 hidden ">
                 {navItems.map((item : any, index) => (

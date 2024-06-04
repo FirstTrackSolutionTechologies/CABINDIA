@@ -13,6 +13,7 @@ const SubFooter = () => {
       <div className="text-white text-center">
          CabIndia , BMC Bhawani Mall , Saheed Nagar Bhubaneswar , Odisha - 751007
       </div>
+     
     </div>
   );
 };
