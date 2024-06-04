@@ -20,6 +20,7 @@ const Menu = ({togglePanel, isOpen} : any) => {
       <button onClick={togglePanel} className={`w-32 px-5 py-2 bg-yellow-400 text-black font-bold rounded-md`}>
         {isOpen ? 'X' : 'Login'}
       </button>
+      
         {navItems.map((item :any, index :number) =>(
           <div onClick={item.dropdown?()=>{}:()=>toggleMenu()} className='w-full p-3 text-center'>
             <NavItem index={index} item={item} active='' toggleMenu={toggleMenu} />
