@@ -1,9 +1,9 @@
 import RequestCard from "./RequestCard"
 
 
-const ReqAck = () => {
+const ReqAck = ({step, stepUp} : {step:number, stepUp:()=>void}) => {
   return (
-    <div className={`bg-white absolute transition-all duration-300 w-full md:w-96 h-96 z-30  bottom-0 shadow-userCard flex flex-col justify-between items-center`}>
+    <div onClick={()=>stepUp()} className={`bg-white absolute transition-all duration-300 w-full md:w-96 ${step==1?"h-96":"h-0 overflow-hidden"} z-30  bottom-0 shadow-userCard flex flex-col justify-between items-center`}>
         <div className=" h-auto w-full flex-col justify-center items-center bg-white">
             <div className="text-xl font-bold text-center py-3">
                 REQUEST FROM

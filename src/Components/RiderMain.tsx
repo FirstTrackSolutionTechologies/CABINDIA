@@ -1,9 +1,8 @@
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { useState } from 'react';
+import ReqAck from './ReqAck';
+import RequestCard from './RequestCard';
 // import axios from 'axios';
-
-
-
 
 
 const RiderDash = () => {
@@ -39,6 +38,13 @@ const handleMapClick = async (event : any) => {
         
     // }
 };
+  const [step, setStep] = useState<number>(0)
+  const stepUp = () => {
+    setStep(step+1);
+  }
+  // const stepDown = () => {
+  //   setStep(step-1);
+  // }
   return (
     <>
         <div className="absolute w-full inset-0 flex justify-center items-center bg-gray-300">
@@ -56,8 +62,8 @@ const handleMapClick = async (event : any) => {
            
         </>
     ) : <></>}
-          {/* <div className={`absolute transition-all duration-300 ${reqOpen?"h-72":"h-10"} max-h-1/2 md:w-96 w-full bottom-0 bg-[url("driverBg.avif")] bg-no-repeat bg-cover overflow-hidden overflow-x-hidden `}>
-            <div onClick={()=>{setReqOpen(!reqOpen)}} className='shadow-cabCard sticky z-20 top-0 text-xl font-bold w-full bg-slate-400 text-center py-3'>
+          <div onClick={()=>{stepUp()}} className={`absolute transition-all duration-300 ${step==0?"h-72":"h-0 overflow-hidden"} max-h-1/2 md:w-96 w-full bottom-0 bg-[url("driverBg.avif")] bg-no-repeat bg-cover overflow-hidden overflow-x-hidden `}>
+            <div className='shadow-cabCard sticky z-20 top-0 text-xl font-bold w-full bg-slate-400 text-center py-3'>
               INCOMING REQUESTS
             </div>
             <div className='w-full h-max-1/2 scroll-auto'>
@@ -66,8 +72,8 @@ const handleMapClick = async (event : any) => {
               <RequestCard />
             </div>
           </div>
-          <ReqAck /> */}
-          <div className={`absolute bottom-0 sm:w-[400px] w-full bg-white py-4 flex flex-col justify-center items-center`}>
+          <ReqAck step={step} stepUp = {stepUp} />
+          <div className={`absolute bottom-0 sm:w-[400px] w-full transition-all duration-300 ${step==2?"h-[600px]":"h-0 overflow-hidden"} bg-white py-4 flex flex-col justify-center items-center`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             YOUR RIDE INFO
           </div>

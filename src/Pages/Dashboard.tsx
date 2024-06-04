@@ -1,15 +1,13 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Booking from '../Components/Booking'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
-const Dashboard = ({isLoggedIn} : any) => {
-  const navigate = useNavigate();
-  useEffect(()=>{
-    isLoggedIn?(''):(navigate('/'))
-  },[])
+const Dashboard = () => {
+  // const navigate = useNavigate();
+ 
   return (
     <>
-        {isLoggedIn?<Booking />:null}
+        <Booking />
     </>
   )
 }
