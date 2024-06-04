@@ -13,7 +13,7 @@ const Laptop = () => {
       <Header width='full' active="Home" isLoggedIn={false} />
       <Routes>
         <Route index element={<Index/>} />
-        <Route path="/aboutus" element={<AboutUs/>} />
+        <Route path="/blog" element={<AboutUs/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/career" element={<Career/>} />
         <Route path="/contact" element={<ContactUs/>} />

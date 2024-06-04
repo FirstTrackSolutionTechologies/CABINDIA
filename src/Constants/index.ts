@@ -20,8 +20,8 @@ export const navItems = [
         ],
     },
     {
-        name: 'About Us',
-        link: '/aboutus'
+        name: 'Blog',
+        link: '/blog'
     },
     {
         name: 'Career',
