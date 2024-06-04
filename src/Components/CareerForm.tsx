@@ -49,7 +49,6 @@ const CareerForm = () => {
                 <option value="">Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="other">Other</option>
             </select>
 
             <select name="quali" className="bg-gray-900 text-gray-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[310px] w-full">

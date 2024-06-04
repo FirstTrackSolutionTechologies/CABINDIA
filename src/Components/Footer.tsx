@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="flex sm:flex-row flex-col md:w-2/3 w-full items-center justify-center">
       <div className="flex justify-center items-center md:w-1/2 w-full  p-6 flex-col">
           <img src="logo.png" alt="" className="lg:h-40 h-48 sm:h-32" />
-          <div className="text-center lg:text-5xl text-3xl font-bold">CABINDIA</div>
+          <div className="text-center lg:text-5xl text-3xl font-bold flex">CAB<p className="text-orange-400">IN</p><p>D</p><p className="text-green-400"> IA</p></div>
       </div>
       <div className="flex flex-col  md:w-1/2 w-full  items-center justify-center md:p-8 p-4 border-x-2 border-gray-700">
         <div className="lg:text-2xl text-xl font-bold mb-4">
