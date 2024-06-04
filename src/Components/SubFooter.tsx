@@ -11,8 +11,7 @@ const SubFooter = () => {
       </div>
       <div className="text-white text-center">We are located at:-</div>
       <div className="text-white text-center">
-        Cab5155 Technologies Pvt. Ltd. 1234, Sector 42 Motihari, Bihar India -
-        122002
+         CabIndia , BMC Bhawani Mall , Saheed Nagar Bhubaneswar , Odisha - 751007
       </div>
     </div>
   );
