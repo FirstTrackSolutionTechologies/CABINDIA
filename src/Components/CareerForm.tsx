@@ -57,6 +57,7 @@ const CareerForm = () => {
                 <option value="10th">10th</option>
                 <option value="12th">12th</option>
                 <option value="Under Graduate">Under Graduate</option>
+                <option value="Graduate">Graduate</option>
                 <option value="Post Graduate">Post Graduate</option>
             </select>
         </div>
