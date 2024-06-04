@@ -94,7 +94,7 @@ useEffect(() => {
            
         </>
     ) : <></>} 
-        <div onClick={()=>stepUp()} className={`absolute ${step==0?"":"hidden"} bottom-0 md:w-[700px] w-full bg-white py-4`}>
+        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==0?"h-60 py-4":"h-0 p-0"} bottom-0 md:w-[700px] w-full bg-white`}>
           <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR WAY
           </div>
@@ -133,7 +133,7 @@ useEffect(() => {
           </div>
         </div>
 
-        <div onClick={()=>stepUp()} className={`absolute ${step==1?"":"hidden"} bottom-0 sm:w-[500px] w-full bg-white py-4`}>
+        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==1?"h-96 py-4":"h-0 p-0"} bottom-0 sm:w-[500px] w-full bg-white`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR RIDE
           </div>
@@ -143,7 +143,7 @@ useEffect(() => {
           <RideCard />
         </div>
 
-        <div onClick={()=>stepUp()} className={`absolute ${step==2?"":"hidden"} bottom-0 sm:w-[500px] w-full bg-white py-4 flex flex-col justify-center items-center`}>
+        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==2?"h-72 py-4":"h-0 p-0 "} bottom-0 sm:w-[500px] w-full bg-white flex flex-col justify-center items-center`}>
           <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR PAY METHOD
           </div>
@@ -163,7 +163,7 @@ useEffect(() => {
           
         </div>
 
-        <div onClick={()=>setFormData({source: '', destination:''})} className={`absolute ${step==3?"":"hidden"} bottom-0 sm:w-[400px] w-full bg-white py-4 flex flex-col justify-center items-center`}>
+        <div onClick={()=>setFormData({source: '', destination:''})} className={`absolute transition-all duration-300 overflow-hidden ${step==3?"h-[600px] py-4":"h-0 p-0 "} bottom-0 sm:w-[400px] w-full bg-white flex flex-col justify-center items-center`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             YOUR RIDE INFO
           </div>

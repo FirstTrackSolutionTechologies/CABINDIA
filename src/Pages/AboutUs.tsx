@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
    <>
     {/* <Header width='full' active='About Us' isLoggedIn={true} /> */}
-    <Carousel images={['logo_.png','logo.png', 'welcome.jpg']} />
+    <Carousel images={['logo.png', 'welcome.jpg']} />
     <LeftAboutUs />
     <RightAboutUs />
     <LeftAboutUs />

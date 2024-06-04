@@ -7,7 +7,7 @@ import CareerForm from '../Components/CareerForm'
 const Career = () => {
   return (
     <>
-        <Carousel images={['logo.png','logo_.png','welcome.jpg', 'career_1.jpg']} />
+        <Carousel images={['logo.png','welcome.jpg', 'career_1.jpg']} />
         <CareerForm />
         <LeftAboutUs />
         <RightAboutUs />

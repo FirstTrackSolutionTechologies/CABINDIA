@@ -62,7 +62,7 @@ const handleMapClick = async (event : any) => {
            
         </>
     ) : <></>}
-          <div onClick={()=>{stepUp()}} className={`absolute transition-all duration-300 ${step==0?"h-72":"h-0 overflow-hidden"} max-h-1/2 md:w-96 w-full bottom-0 bg-[url("driverBg.avif")] bg-no-repeat bg-cover overflow-hidden overflow-x-hidden `}>
+          <div onClick={()=>{stepUp()}} className={`absolute z-10 transition-all duration-300 ${step==0?"h-72":"h-0 overflow-hidden"} max-h-1/2 md:w-96 w-full bottom-0 bg-[url("driverBg.avif")] bg-no-repeat bg-cover overflow-hidden overflow-x-hidden `}>
             <div className='shadow-cabCard sticky z-20 top-0 text-xl font-bold w-full bg-slate-400 text-center py-3'>
               INCOMING REQUESTS
             </div>
@@ -73,7 +73,7 @@ const handleMapClick = async (event : any) => {
             </div>
           </div>
           <ReqAck step={step} stepUp = {stepUp} />
-          <div className={`absolute bottom-0 sm:w-[400px] w-full transition-all duration-300 ${step==2?"h-[600px]":"h-0 overflow-hidden"} bg-white py-4 flex flex-col justify-center items-center`}>
+          <div className={`absolute z-0 bottom-0 sm:w-96 w-full transition-all duration-300 ${step==2?"h-[600px]":"h-0 overflow-hidden"} bg-white py-4 flex flex-col justify-center items-center`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             YOUR RIDE INFO
           </div>

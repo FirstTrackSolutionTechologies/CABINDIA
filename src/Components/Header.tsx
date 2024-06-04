@@ -19,9 +19,10 @@ interface INavItemProps {
     dropdownOptions : object[];
   };
   active : string;
+  toggleMenu: any
 }
 
-export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
+export const NavItem : FC<INavItemProps> = ({index, item, active, toggleMenu}) => {
   const [isDropdown, setIsDropdown] = useState<Boolean>(false)
   const toggleDropdown = () => {
     setIsDropdown(!isDropdown);  
@@ -35,7 +36,7 @@ export const NavItem : FC<INavItemProps> = ({index, item, active}) => {
         (<>
           <div className="absolute top-8 w-48 p-4 bg-gray-800 text-white  z-50 ">
             {item.dropdownOptions.map((item: any, index) => (
-              <div className="py-2 hover:text-yellow-400">
+              <div onClick={item.dropdown?()=>{}:()=>toggleMenu()} className="py-2 hover:text-yellow-400">
               <Link key={index} to={item.link}><p className={(active===item.name)?"font-bold":""}>{`${item.name}`}</p></Link>
               </div>
             ))}
@@ -74,7 +75,7 @@ const Header : FC<IHeaderProps> = ({width, active, isLoggedIn }) => {
             </Link>
               <div className="md:flex justify-between w-96 ml-16 hidden ">
                 {navItems.map((item : any, index) => (
-                  <NavItem item={item} index={index} active={active} />
+                  <NavItem item={item} index={index} active={active} toggleMenu={()=>{}} />
                 ))}
             </div>
           </div>

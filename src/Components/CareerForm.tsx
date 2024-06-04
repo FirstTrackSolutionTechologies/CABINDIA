@@ -6,37 +6,59 @@ const CareerForm = () => {
       </div>
       <form
         action=""
-        className=" md:w-[600px] w-full flex justify-center items-center flex-col py-6"
+        className=" md:w-[750px] w-full flex justify-center items-center flex-col py-6"
       >
         <div className="flex flex-col sm:flex-row w-full justify-between ">
           
           <input
             placeholder="First Name"
-            className=" bg-gray-900 text-yellow-400 sm:w-[300px] w-full mr-3 my-3 p-3 rounded-xl"
+            className=" bg-gray-900 text-yellow-400 sm:w-[360px] w-full mr-3 my-3 p-3 rounded-xl"
             type="text"
             name="fname"
           />
           <input
             placeholder="Last Name"
-            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[300px] w-full"
+            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[360px] w-full"
             type="text"
             name="lname"
           />
         </div>
         <div className="flex flex-col sm:flex-row w-full justify-between ">
-          
-          <input
-            placeholder="email"
-            className=" bg-gray-900 text-yellow-400 sm:w-[300px] w-full mr-3 my-3 p-3 rounded-xl"
-            type="email"
-            name="email"
-          />
-          <input
+        <input
             placeholder="Mobile"
-            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[300px] w-full"
+            className="bg-gray-900 text-yellow-400 sm:w-[360px] w-full mr-3 my-3 p-3 rounded-xl"
             type="text"
             name="mobile"
           />
+          <input
+            placeholder="E-mail"
+            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[360px] w-full"
+            type="email"
+            name="email"
+          />
+          
+        </div>
+        <div className="flex flex-col sm:flex-row w-full justify-between ">
+        <input
+            placeholder="Date of Birth"
+            className="bg-gray-900 text-gray-400 sm:w-[230px] w-full mr-3 my-3 p-3 rounded-xl"
+            type="date"
+            name="dob"
+          />
+            <select name="gender" className="bg-gray-900 text-gray-400 sm:ml-3 sm:my-3 p-3 mb-3 rounded-xl sm:w-[150px] w-full">
+                <option value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <select name="quali" className="bg-gray-900 text-gray-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[310px] w-full">
+                <option value="">Qualification</option>
+                <option value="10th">10th</option>
+                <option value="12th">12th</option>
+                <option value="Under Graduate">Under Graduate</option>
+                <option value="Post Graduate">Post Graduate</option>
+            </select>
         </div>
         <input
           placeholder="Street Address"
@@ -47,14 +69,14 @@ const CareerForm = () => {
         <div className="flex flex-col sm:flex-row w-full justify-between ">
           
           <input
-            placeholder="city"
-            className=" bg-gray-900 text-yellow-400 sm:w-[300px] w-full mr-3 my-3 p-3 rounded-xl"
+            placeholder="City"
+            className=" bg-gray-900 text-yellow-400 sm:w-[360px] w-full mr-3 my-3 p-3 rounded-xl"
             type="text"
             name="city"
           />
           <input
-            placeholder="state"
-            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[300px] w-full"
+            placeholder="State"
+            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[360px] w-full"
             type="text"
             name="state"
           />
@@ -62,22 +84,22 @@ const CareerForm = () => {
         <div className="flex flex-col sm:flex-row w-full justify-between ">
           
           <input
-            placeholder="pincode"
-            className=" bg-gray-900 text-yellow-400 sm:w-[300px] w-full mr-3 my-3 p-3 rounded-xl"
+            placeholder="Pincode"
+            className=" bg-gray-900 text-yellow-400 sm:w-[360px] w-full mr-3 my-3 p-3 rounded-xl"
             type="text"
             name="pincode"
           />
           <input
             placeholder="Country"
-            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[300px] w-full"
+            className="bg-gray-900 text-yellow-400  sm:ml-3 sm:my-3 p-3 rounded-xl sm:w-[360px] w-full"
             type="text"
             name="country"
           />
         </div>
         <textarea
-          placeholder="About Yourself"
+          placeholder="Message (Upto 1000 Characters)"
           className="h-48 bg-gray-900 text-yellow-400  my-3 w-full py-3 px-3 rounded-xl"
-          name="about"
+          name="message"
         />
         <div className=" flex w-full justify-center ">
           {/* <label htmlFor="dl" className="bg-gray-900 text-white p-3 rounded-xl">
