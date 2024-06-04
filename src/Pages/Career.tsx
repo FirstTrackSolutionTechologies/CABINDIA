@@ -3,7 +3,8 @@ import Carousel from '../Components/Carousel'
 // import RightAboutUs from '../Components/RightAboutUs'
 import Footer from '../Components/Footer'
 import CareerForm from '../Components/CareerForm'
-import Closing from '../Components/Closing'
+// import Closing from '../Components/Closing'
+import SubFooter from '../Components/SubFooter'
 
 const Career = () => {
   return (
@@ -14,7 +15,7 @@ const Career = () => {
         <RightAboutUs />
         <LeftAboutUs />
         <RightAboutUs /> */}
-        <Closing />
+        <SubFooter/>
         <Footer />
     </>
   )
