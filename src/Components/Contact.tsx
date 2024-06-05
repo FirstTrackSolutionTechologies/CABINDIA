@@ -49,7 +49,7 @@ const Contact = () => {
       })
       .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred during Email'+data);
+        alert('An error occurred during Email'+data.email +data.message +data.name);
       });
   };
   return (
