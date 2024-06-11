@@ -1,6 +1,6 @@
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import RideCard from './RideCard';
 
 const Booking = () => {
@@ -8,7 +8,6 @@ const Booking = () => {
     source: '',
     destination : ''
   })
-  
   const containerStyle = {
     width: '100%',
     height: '100%',
@@ -34,22 +33,22 @@ const handleMapClick = async (event : any) => {
     setMarkerPosition({ lat, lng });
     // setCoordinates({ lat, lng });
 
-    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(formData.source)}&key=AIzaSyDOvHfx4YllThHklrc1ngcYVLuRNBYnHM0`);
-    if (response.data.results.length > 0) {
-      const { lat, lng } = response.data.results[0].geometry.location;
-      setCenter({ lat, lng });
-      setMarkerPosition({ lat, lng });
-    } else {
+    // const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(formData.source)}&key=AIzaSyDOvHfx4YllThHklrc1ngcYVLuRNBYnHM0`);
+    // if (response.data.results.length > 0) {
+    //   const { lat, lng } = response.data.results[0].geometry.location;
+    //   setCenter({ lat, lng });
+    //   setMarkerPosition({ lat, lng });
+    // } else {
         
-    }
+    // }
 };
-// const handleChange = (e :any) => {
-//   const { name, value } = e.target;
-//   setFormData((prevData) => ({
-//     ...prevData,
-//     [name]: value
-//   }));
-// };
+const handleChange = (e :any) => {
+  const { name, value } = e.target;
+  setFormData((prevData) => ({
+    ...prevData,
+    [name]: value
+  }));
+};
 
 useEffect(() => {
   // Get user's current location
@@ -77,6 +76,10 @@ useEffect(() => {
   //   if (step ==0) return
   //   setStep(step-1);
   // }
+  const handleSubmit = (e : any) => {
+    e.preventDefault()
+    stepUp();
+  }
   return (
     <>
       <div className='absolute inset-0 pt-16 flex justify-center items-center'>
@@ -94,7 +97,7 @@ useEffect(() => {
            
         </>
     ) : <></>} 
-        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==0?"h-60 py-4":"h-0 p-0"} bottom-0 md:w-[700px] w-full bg-white`}>
+        <div  className={`absolute transition-all duration-300 overflow-hidden ${step==0?"h-60 py-4":"h-0 p-0"} bottom-0 md:w-[700px] w-full bg-white`}>
           <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR WAY
           </div>
@@ -108,10 +111,13 @@ useEffect(() => {
             <form
             className="w-full flex flex-col justify-center items-center "
             action=""
+            onSubmit={handleSubmit}
           >
 
               <input
                 className="bg-gray-100 p-2 w-4/5 rounded-3xl mb-3"
+                value={formData.source}
+                onChange={handleChange}
                 placeholder="Source"
                 type="text"
                 name="source"
@@ -119,13 +125,15 @@ useEffect(() => {
             
               <input
                 className="bg-gray-100 p-2 w-4/5 rounded-3xl mb-3"
+                value={formData.destination}
+                onChange={handleChange}
                 type="text"
                 name="destination"
                 placeholder="Destination"
               />
             
 
-            <button className="w-4/5 p-2 rounded-3xl bg-gray-200 ">
+            <button type='submit' className="w-4/5 p-2 rounded-3xl bg-gray-200 ">
               Get Your Fare
             </button>
           </form>
@@ -133,29 +141,29 @@ useEffect(() => {
           </div>
         </div>
 
-        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==1?"h-96 py-4":"h-0 p-0"} bottom-0 sm:w-[500px] w-full bg-white`}>
+        <div className={`absolute transition-all duration-300 overflow-hidden ${step==1?"h-96 py-4":"h-0 p-0"} bottom-0 sm:w-[500px] w-full bg-white`}>
         <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR RIDE
           </div>
-          <RideCard />
-          <RideCard />
-          <RideCard />
-          <RideCard />
+          <RideCard stepUp={stepUp} />
+          <RideCard stepUp={stepUp}/>
+          <RideCard stepUp={stepUp}/>
+          <RideCard stepUp={stepUp}/>
         </div>
 
-        <div onClick={()=>stepUp()} className={`absolute transition-all duration-300 overflow-hidden ${step==2?"h-72 py-4":"h-0 p-0 "} bottom-0 sm:w-[500px] w-full bg-white flex flex-col justify-center items-center`}>
+        <div  className={`absolute transition-all duration-300 overflow-hidden ${step==2?"h-72 py-4":"h-0 p-0 "} bottom-0 sm:w-[500px] w-full bg-white flex flex-col justify-center items-center`}>
           <div className='w-full text-xl text-center p-2 font-bold'>
             CHOOSE YOUR PAY METHOD
           </div>
           <div className='w-full flex flex-col items-center py-4'>
-            <div className='w-full flex justify-center border'> 
-            <label htmlFor="cash" className='py-4  w-4/5 text-center '>Cash</label>
+            <div onClick={()=>stepUp()} className='w-full flex justify-center border'> 
+            <label  htmlFor="cash" className='py-4  w-4/5 text-center '>Cash</label>
             </div>
-            <div className='w-full flex justify-center border mb-4'>
+            <div onClick={()=>stepUp()} className='w-full flex justify-center border mb-4'>
             
             <label htmlFor="online" className='py-4 w-4/5 text-center'>Online</label>
             </div>
-            <form action="" className='w-full flex px-4'>
+            <form onSubmit={(e)=>e.preventDefault()} action="" className='w-full flex px-4'>
               <input className='flex-1 p-2 border-2' type="text" placeholder='Coupon Code' />
               <button className='px-4 py-2 border-2'>Apply</button>
             </form>
