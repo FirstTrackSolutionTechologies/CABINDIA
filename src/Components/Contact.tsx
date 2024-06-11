@@ -19,15 +19,6 @@ const Contact = () => {
   
   const handleSubmit = async (e : any) => {
     e.preventDefault();
-    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
-    const name = (document.querySelector('input[name="name"]') as HTMLInputElement).value;
-    const message = (document.querySelector('textarea[name="message"]') as HTMLTextAreaElement).value;
-
-    const data = {
-      name,
-      email,
-      message
-    };
 
     // Make the API call
     const templateParams = {
