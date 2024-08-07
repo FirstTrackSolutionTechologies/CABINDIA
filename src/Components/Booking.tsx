@@ -21,7 +21,7 @@ const Booking = () => {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: import.meta.env.VITE_APP_MAP_API_KEY // Replace with your API key
+    googleMapsApiKey: import.meta.env.VITE_APP_MAP_API_KEY 
 });
 
 const [markerPosition, setMarkerPosition] = useState(center);
@@ -33,7 +33,7 @@ const handleMapClick = async (event : any) => {
     setMarkerPosition({ lat, lng });
     // setCoordinates({ lat, lng });
 
-    // const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(formData.source)}&key=`);
+    // const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(formData.source)}&key=${import.meta.env.VITE_APP_MAP_API_KEY}`);
     // if (response.data.results.length > 0) {
     //   const { lat, lng } = response.data.results[0].geometry.location;
     //   setCenter({ lat, lng });
