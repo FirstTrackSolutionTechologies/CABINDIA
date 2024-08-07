@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-
+import emailjs from 'emailjs-com';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -19,37 +19,25 @@ const Contact = () => {
   
   const handleSubmit = async (e : any) => {
     e.preventDefault();
-    const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
-    const name = (document.querySelector('input[name="name"]') as HTMLInputElement).value;
-    const message = (document.querySelector('textarea[name="message"]') as HTMLTextAreaElement).value;
-
-    const data = {
-      name,
-      email,
-      message
-    };
 
     // Make the API call
-    fetch('/.netlify/functions/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (result.success) {
-          alert("Email sent successfully");
-          // Handle successful login
-        } else {
-          alert('Email failed: ' + result.message);
-          // Handle login failure
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during Email'+data.email +data.message +data.name);
+    const templateParams = {
+      email: formData.email,
+      subject: "Mail from Contact Us | CabIndia",
+      message: formData.message,
+      name : formData.name,
+      mobile : formData.mobile
+    };
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID
+    emailjs.send(serviceID, templateID, templateParams, userID)
+      .then((response) => {
+        console.log('Email sent successfully!', response.status, response.text);
+        alert('Email sent successfully!');
+      }, (error) => {
+        console.error('Failed to send email.', error);
+        alert('Error sending email. Please try again.');
       });
   };
   return (
